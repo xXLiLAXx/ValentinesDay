@@ -10,12 +10,12 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden; /* Prevents overflowing elements */
+  overflow: hidden;
 }
 
 .container {
   text-align: center;
-  width: 90%; /* Ensures content fits smaller screens */
+  width: 90%;
 }
 
 h1 {
@@ -34,7 +34,7 @@ h1 {
   transform: scale(1);
   transition: transform 0.3s ease-in-out;
   clip-path: polygon(50% 0%, 100% 35%, 80% 100%, 50% 80%, 20% 100%, 0% 35%);
-  will-change: transform, opacity, top; /* Optimized for animations */
+  will-change: transform, opacity;
 }
 
 .heart.fly {
@@ -52,7 +52,7 @@ h1 {
 
 button {
   font-size: 1.2rem;
-  padding: 15px 20px; /* Larger padding for touch */
+  padding: 15px 20px;
   margin: 10px;
   border: none;
   border-radius: 5px;
@@ -61,7 +61,7 @@ button {
 }
 
 button:focus {
-  outline: 3px solid #ff6f91; /* Adds focus outline for accessibility */
+  outline: 3px solid #ff6f91;
 }
 
 #yes-btn {
@@ -89,7 +89,7 @@ button:focus {
     transform: scale(1.5) translateY(-20px);
   }
   100% {
-    transform: translateY(-100vh); /* Fly off the screen */
+    transform: translateY(-100vh);
     opacity: 0;
   }
 }
@@ -117,36 +117,6 @@ button:focus {
   100% {
     background-color: transparent;
     opacity: 0;
-  }
-}
-
-/* Confetti Styling */
-.confetti-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  overflow: hidden;
-}
-
-.confetti {
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  background-color: red;
-  clip-path: polygon(50% 0%, 100% 35%, 80% 100%, 50% 80%, 20% 100%, 0% 35%);
-  animation: fall 3s linear infinite;
-  opacity: 0.8;
-}
-
-@keyframes fall {
-  0% {
-    transform: translateY(-10vh) rotate(0deg);
-  }
-  100% {
-    transform: translateY(110vh) rotate(360deg);
   }
 }
 
