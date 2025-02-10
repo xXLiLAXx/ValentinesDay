@@ -105,21 +105,6 @@ button:focus {
   }
 }
 
-@keyframes screenFlash {
-  0% {
-    background-color: rgba(255, 0, 0, 0.8);
-    opacity: 1;
-  }
-  50% {
-    background-color: rgba(255, 255, 255, 0.5);
-    opacity: 0.5;
-  }
-  100% {
-    background-color: transparent;
-    opacity: 0;
-  }
-}
-
 /* Confetti Styling */
 .confetti-container {
   position: absolute;
@@ -148,17 +133,4 @@ button:focus {
   100% {
     transform: translateY(110vh) rotate(360deg);
   }
-}
-
-/* Full-Screen Flash Effect */
-#screen-flash {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 999;
-  background-color: transparent;
-  opacity: 0;
-  pointer-events: none;
 }
