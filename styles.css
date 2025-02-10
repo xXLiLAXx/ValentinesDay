@@ -34,7 +34,7 @@ h1 {
   transform: scale(1);
   transition: transform 0.3s ease-in-out;
   clip-path: polygon(50% 0%, 100% 35%, 80% 100%, 50% 80%, 20% 100%, 0% 35%);
-  will-change: transform, opacity;
+  will-change: transform, opacity, top;
 }
 
 .heart.fly {
@@ -91,7 +91,6 @@ button:focus {
   height: 100%;
   pointer-events: none;
   overflow: hidden;
-  z-index: 1000;
 }
 
 .confetti {
@@ -100,16 +99,16 @@ button:focus {
   height: 20px;
   background-color: red;
   clip-path: polygon(50% 0%, 100% 35%, 80% 100%, 50% 80%, 20% 100%, 0% 35%);
-  animation: fall 3s linear forwards;
-  opacity: 0.9;
+  animation: fall 3s linear infinite;
+  opacity: 0.8;
 }
 
 @keyframes fall {
   0% {
-    transform: translateY(-20vh) rotate(0deg);
+    transform: translateY(-10vh) rotate(0deg);
   }
   100% {
-    transform: translateY(120vh) rotate(360deg);
+    transform: translateY(110vh) rotate(360deg);
   }
 }
 
@@ -152,7 +151,7 @@ button:focus {
   pointer-events: none;
   transition: background-color 0.5s ease-in-out;
 }
+
 #screen-effect.red {
   background-color: rgba(255, 0, 0, 0.9); /* Permanent red screen */
 }
- 
