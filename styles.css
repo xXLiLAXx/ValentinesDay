@@ -37,12 +37,8 @@ h1 {
   will-change: transform, opacity;
 }
 
-.heart.fly {
-  animation: beatFly 2s ease-in-out forwards;
-}
-
 .heart.pop {
-  animation: pop 0.3s forwards;
+  animation: pop 0.5s ease-out forwards;
 }
 
 /* Buttons */
@@ -83,21 +79,14 @@ button:focus {
 }
 
 /* Animations */
-@keyframes beatFly {
-  0%,
-  50% {
-    transform: scale(1.5) translateY(-20px);
-  }
-  100% {
-    transform: translateY(-100vh);
-    opacity: 0;
-  }
-}
-
 @keyframes pop {
   0% {
     transform: scale(1);
     opacity: 1;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 0.8;
   }
   100% {
     transform: scale(0);
@@ -105,23 +94,23 @@ button:focus {
   }
 }
 
-@keyframes screenFlash {
+@keyframes screenRed {
   0% {
+    background-color: rgba(255, 0, 0, 0);
+    opacity: 0;
+  }
+  50% {
     background-color: rgba(255, 0, 0, 0.8);
     opacity: 1;
   }
-  50% {
-    background-color: rgba(255, 255, 255, 0.5);
-    opacity: 0.5;
-  }
   100% {
-    background-color: transparent;
+    background-color: rgba(255, 0, 0, 0);
     opacity: 0;
   }
 }
 
-/* Full-Screen Flash Effect */
-#screen-flash {
+/* Screen Effect Styling */
+#screen-effect {
   position: fixed;
   top: 0;
   left: 0;
@@ -129,6 +118,6 @@ button:focus {
   height: 100%;
   z-index: 999;
   background-color: transparent;
-  opacity: 0;
   pointer-events: none;
+  opacity: 0;
 }
