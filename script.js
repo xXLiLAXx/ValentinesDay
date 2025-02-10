@@ -1,26 +1,25 @@
-// Select the heart, buttons, and confetti container
+// Select elements
 const heart = document.getElementById("heart");
 const yesButton = document.getElementById("yes-btn");
 const noButton = document.getElementById("no-btn");
 const confettiContainer = document.getElementById("confetti-container");
 const screenFlash = document.getElementById("screen-flash");
 
-// "Yes" Button: Make the heart beat, fly, and confetti rain
+// "Yes" Button: Make the heart fly and create confetti
 yesButton.addEventListener("click", () => {
   heart.classList.add("fly");
   heart.classList.remove("pop");
   createConfetti();
 });
 
-// "No" Button: Make the heart pop, disappear, and trigger a screen flash
+// "No" Button: Make the heart pop and trigger a full-screen flash
 noButton.addEventListener("click", () => {
   heart.classList.add("pop");
-  heart.classList.remove("fly");
 
-  // Trigger full-screen flash
+  // Trigger the full-screen flash effect
   screenFlash.style.animation = "screenFlash 0.5s ease forwards";
 
-  // Remove the heart after animation
+  // Remove the heart after animation ends
   setTimeout(() => {
     heart.style.display = "none";
   }, 300);
