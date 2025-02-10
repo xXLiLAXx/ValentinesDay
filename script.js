@@ -1,136 +1,45 @@
-/* General Styling */
-body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, sans-serif;
-  text-align: center;
-  background-color: #ffecf0;
-  margin: 0;
-  padding: 0;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden; /* Prevents overflowing elements */
-}
+// Select the heart, buttons, and confetti container
+const heart = document.getElementById("heart");
+const yesButton = document.getElementById("yes-btn");
+const noButton = document.getElementById("no-btn");
+const confettiContainer = document.getElementById("confetti-container");
 
-.container {
-  text-align: center;
-  width: 90%; /* Ensures content fits smaller screens */
-}
+// "Yes" Button: Make the heart beat, fly, and confetti rain
+yesButton.addEventListener("click", () => {
+  heart.classList.add("fly");
+  heart.classList.remove("pop");
+  createConfetti();
+});
 
-h1 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-  color: #d6336c;
-}
+// "No" Button: Make the heart pop and disappear
+noButton.addEventListener("click", () => {
+  heart.classList.add("pop");
+  heart.classList.remove("fly");
+});
 
-/* Heart Styling */
-.heart {
-  width: 100px;
-  height: 90px;
-  background-color: red;
-  position: relative;
-  margin: 20px auto;
-  transform: scale(1);
-  transition: transform 0.3s ease-in-out;
-  clip-path: polygon(50% 0%, 100% 35%, 80% 100%, 50% 80%, 20% 100%, 0% 35%);
-  will-change: transform, opacity, top; /* Optimized for animations */
-}
+// Function to create confetti hearts
+function createConfetti() {
+  const numberOfHearts = 50; // Number of confetti hearts
+  for (let i = 0; i < numberOfHearts; i++) {
+    const confetti = document.createElement("div");
+    confetti.classList.add("confetti");
 
-.heart.fly {
-  animation: beatFly 2s ease-in-out forwards;
-}
+    // Randomize position and animation delay
+    confetti.style.left = ${Math.random() * 100}%;
+    confetti.style.animationDelay = ${Math.random() * 2}s;
+    confetti.style.backgroundColor = getRandomColor(); // Optional: random colors
 
-.heart.pop {
-  animation: pop 0.3s forwards;
-}
+    confettiContainer.appendChild(confetti);
 
-/* Buttons */
-.buttons {
-  margin-top: 20px;
-}
-
-button {
-  font-size: 1.2rem;
-  padding: 15px 20px; /* Larger padding for touch */
-  margin: 10px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-button:focus {
-  outline: 3px solid #ff6f91; /* Adds focus outline for accessibility */
-}
-
-#yes-btn {
-  background-color: #ff6f91;
-  color: white;
-}
-
-#yes-btn:hover {
-  background-color: #d6336c;
-}
-
-#no-btn {
-  background-color: #ffc1cc;
-  color: white;
-}
-
-#no-btn:hover {
-  background-color: #ff808d;
-}
-
-/* Animations */
-@keyframes beatFly {
-  0%,
-  50% {
-    transform: scale(1.5) translateY(-20px);
-  }
-  100% {
-    transform: translateY(-100vh); /* Fly off the screen */
-    opacity: 0;
+    // Remove confetti after animation
+    setTimeout(() => {
+      confetti.remove();
+    }, 3000);
   }
 }
 
-@keyframes pop {
-  0% {
-    transform: scale(1);
-    opacity: 1;
-  }
-  100% {
-    transform: scale(0);
-    opacity: 0;
-  }
-}
-
-/* Confetti Styling */
-.confetti-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  overflow: hidden;
-}
-
-.confetti {
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  background-color: red;
-  clip-path: polygon(50% 0%, 100% 35%, 80% 100%, 50% 80%, 20% 100%, 0% 35%);
-  animation: fall 3s linear infinite;
-  opacity: 0.8;
-}
-
-@keyframes fall {
-  0% {
-    transform: translateY(-10vh) rotate(0deg);
-  }
-  100% {
-    transform: translateY(110vh) rotate(360deg);
-  }
+// Function to generate random colors (optional for multicolored hearts)
+function getRandomColor() {
+  const colors = ["#ff6f91", "#ff8fa3", "#ffc1cc", "#ff4d6d", "#d6336c"];
+  return colors[Math.floor(Math.random() * colors.length)];
 }
