@@ -37,7 +37,8 @@ function createConfetti() {
 
     // Randomize position and animation delay
     confetti.style.left = `${Math.random() * 100}%`;
-    confetti.style.animationDelay = `${Math.random() * 2}s`;
+    confetti.style.animationDelay = `${Math.random() * 3}s`; // Delay for staggered falling
+    confetti.style.backgroundColor = getRandomColor();
 
     confettiContainer.appendChild(confetti);
 
@@ -46,4 +47,10 @@ function createConfetti() {
       confetti.remove();
     }, 3000);
   }
+}
+
+// Function to generate random colors for confetti
+function getRandomColor() {
+  const colors = ["#ff6f91", "#ff8fa3", "#ffc1cc", "#ff4d6d", "#d6336c"];
+  return colors[Math.floor(Math.random() * colors.length)];
 }
