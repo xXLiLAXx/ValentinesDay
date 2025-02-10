@@ -12,11 +12,20 @@ yesButton.addEventListener("click", () => {
   createConfetti();
 });
 
-// "No" Button: Make the heart pop and make the screen red
+// "No" Button: Make the heart pop and make the screen red permanently
 noButton.addEventListener("click", () => {
   heart.classList.add("pop");
   heart.classList.remove("fly");
-  screenEffect.classList.add("red");
+
+  // Turn the screen red and keep it red
+  setTimeout(() => {
+    screenEffect.classList.add("red");
+  }, 500); // Wait for the pop animation to finish
+
+  // Hide the heart after the pop animation
+  setTimeout(() => {
+    heart.style.display = "none";
+  }, 500);
 });
 
 // Function to create confetti hearts
