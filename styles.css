@@ -37,6 +37,10 @@ h1 {
   will-change: transform, opacity;
 }
 
+.heart.fly {
+  animation: beatFly 2s ease-in-out forwards;
+}
+
 .heart.pop {
   animation: pop 0.5s ease-out forwards;
 }
@@ -79,6 +83,17 @@ button:focus {
 }
 
 /* Animations */
+@keyframes beatFly {
+  0%,
+  50% {
+    transform: scale(1.5) translateY(-20px);
+  }
+  100% {
+    transform: translateY(-100vh);
+    opacity: 0;
+  }
+}
+
 @keyframes pop {
   0% {
     transform: scale(1);
