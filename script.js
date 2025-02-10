@@ -3,7 +3,6 @@ const heart = document.getElementById("heart");
 const yesButton = document.getElementById("yes-btn");
 const noButton = document.getElementById("no-btn");
 const confettiContainer = document.getElementById("confetti-container");
-const screenFlash = document.getElementById("screen-flash");
 
 // "Yes" Button: Make the heart beat, fly, and confetti rain
 yesButton.addEventListener("click", () => {
@@ -12,18 +11,10 @@ yesButton.addEventListener("click", () => {
   createConfetti();
 });
 
-// "No" Button: Make the heart pop, disappear, and trigger a screen flash
+// "No" Button: Make the heart pop and disappear
 noButton.addEventListener("click", () => {
   heart.classList.add("pop");
   heart.classList.remove("fly");
-
-  // Trigger full-screen flash
-  screenFlash.style.animation = "screenFlash 0.5s ease forwards";
-
-  // Remove the heart after animation
-  setTimeout(() => {
-    heart.style.display = "none";
-  }, 300);
 });
 
 // Function to create confetti hearts
@@ -34,8 +25,8 @@ function createConfetti() {
     confetti.classList.add("confetti");
 
     // Randomize position and animation delay
-    confetti.style.left = `${Math.random() * 100}%`;
-    confetti.style.animationDelay = `${Math.random() * 2}s`;
+    confetti.style.left = ${Math.random() * 100}%;
+    confetti.style.animationDelay = ${Math.random() * 2}s;
     confetti.style.backgroundColor = getRandomColor(); // Optional: random colors
 
     confettiContainer.appendChild(confetti);
