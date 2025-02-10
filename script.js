@@ -37,7 +37,7 @@ function createConfetti() {
 
     // Randomize position and animation delay
     confetti.style.left = `${Math.random() * 100}%`;
-    confetti.style.animationDelay = `${Math.random() * 1.5}s`;
+    confetti.style.animationDelay = `${Math.random() * 2}s`;
     confetti.style.backgroundColor = getRandomColor();
 
     confettiContainer.appendChild(confetti);
